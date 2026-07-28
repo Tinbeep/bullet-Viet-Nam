@@ -1,39 +1,280 @@
-// Lấy khu vực hiển thị nội dung
-const pageContent = document.getElementById("page-content");
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-// Lấy các nút
-const aboutBtn = document.querySelector(".about-btn");
-const tournamentBtn = document.querySelector(".tournament-btn");
-const rulesBtn = document.querySelector(".rules-btn");
-const rankingBtn = document.querySelector(".ranking-btn");
+body{
+    font-family:'Poppins',sans-serif;
+    background:#1b1b1b;
+    color:white;
+    min-height:100vh;
+    background-image:
+    radial-gradient(circle at top,#3b4b2f 0%,#1b1b1b 45%);
+}
 
-// Trang About
-aboutBtn.addEventListener("click", function () {
-    pageContent.innerHTML = `
-        <h3>📘 About Bullet Viet Nam</h3>
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.25);
+    z-index:-1;
+}
 
-        <p>Bullet Viet Nam is a friendly chess club for Bullet players.</p>
+.container{
+    max-width:1400px;
+    margin:auto;
+    padding:40px;
+    display:flex;
+    gap:30px;
+    align-items:flex-start;
+}
 
-        <p>We organize weekly arenas, community events and exciting tournaments.</p>
+.content{
+    flex:1;
+    background:rgba(35,35,35,.9);
+    border:2px solid #81B64C;
+    border-radius:25px;
+    padding:35px;
+    box-shadow:0 0 25px rgba(129,182,76,.25);
+}
 
-        <p>Everyone is welcome, from beginners to masters.</p>
-    `;
-});
-const pageContent = document.getElementById("page-content");
+.content h1{
+    color:#81B64C;
+    font-size:40px;
+    margin-bottom:15px;
+}
 
-const aboutBtn = document.querySelector(".about-btn");
+.content h2{
+    color:#81B64C;
+    margin-bottom:15px;
+}
 
-aboutBtn.addEventListener("click", function () {
+.content p{
+    color:#ddd;
+    line-height:1.8;
+    margin-bottom:15px;
+}
 
-pageContent.innerHTML = `
-<h3>📘 About Bullet Viet Nam</h3>
+.sidebar{
+    width:360px;
+    background:rgba(30,30,30,.95);
+    border:2px solid #81B64C;
+    border-radius:25px;
+    padding:25px;
+    box-shadow:0 0 20px rgba(129,182,76,.25);
+}
 
-<p>Welcome to Bullet Viet Nam.</p>
+.logo{
+    text-align:center;
+    margin-bottom:25px;
+}
 
-<p>We organize Bullet tournaments every Tuesday, Thursday, Saturday and Sunday.</p>
+.logo i{
+    font-size:55px;
+    color:#81B64C;
+    margin-bottom:10px;
+}
 
-<p>Everyone is welcome to join and improve together!</p>
+.logo h2{
+    color:#81B64C;
+}
 
-`;
+.logo p{
+    color:#bbb;
+    margin-top:8px;
+}
 
-});
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-bottom:25px;
+}
+
+.card{
+    background:#3a3a3a;
+    border-radius:15px;
+    padding:15px;
+    text-align:center;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    background:#4a4a4a;
+}
+
+.card i{
+    color:#81B64C;
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.card h3{
+    font-size:22px;
+}
+
+.card span{
+    font-size:13px;
+    color:#ccc;
+}
+
+.menu-title{
+    text-align:center;
+    color:#81B64C;
+    margin-bottom:15px;
+}.buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-bottom:25px;
+}
+
+.btn{
+    background:#81B64C;
+    color:white;
+    border:none;
+    border-radius:14px;
+    padding:14px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#97d45b;
+    transform:translateY(-3px);
+    box-shadow:0 0 18px rgba(129,182,76,.5);
+}
+
+.website{
+    margin-bottom:25px;
+}
+
+.website a{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(90deg,#5b8d38,#81B64C);
+    padding:15px;
+    border-radius:15px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.website a:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 18px rgba(129,182,76,.5);
+}
+
+.progress-box,
+.schedule{
+    background:#2f2f2f;
+    border-radius:18px;
+    padding:18px;
+    margin-top:20px;
+}
+
+.progress-box h3,
+.schedule h3{
+    color:#81B64C;
+    margin-bottom:15px;
+}
+
+.progress{
+    width:100%;
+    height:12px;
+    background:#444;
+    border-radius:30px;
+    overflow:hidden;
+    margin-bottom:15px;
+}
+
+.bar{
+    width:12%;
+    height:100%;
+    background:linear-gradient(90deg,#81B64C,#b7ff73);
+}
+
+.progress-box ul{
+    list-style:none;
+}
+
+.progress-box li{
+    padding:6px 0;
+    color:#ddd;
+}
+
+.day{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#3a3a3a;
+    border-left:5px solid #81B64C;
+    border-radius:12px;
+    padding:12px;
+    margin-bottom:10px;
+    transition:.3s;
+}
+
+.day:hover{
+    transform:translateX(6px);
+    background:#454545;
+}
+
+.day b{
+    color:#81B64C;
+}
+
+.day span{
+    color:#ddd;
+}
+
+.footer{
+    margin-top:40px;
+    text-align:center;
+    color:#aaa;
+    font-size:14px;
+}
+
+.footer p{
+    margin:5px 0;
+}
+
+@media(max-width:1000px){
+
+.container{
+    flex-direction:column;
+}
+
+.sidebar{
+    width:100%;
+}
+
+.content{
+    width:100%;
+}
+
+}
+
+@media(max-width:600px){
+
+.container{
+    padding:20px;
+}
+
+.buttons{
+    grid-template-columns:1fr;
+}
+
+.content h1{
+    font-size:30px;
+}
+
+.stats{
+    grid-template-columns:1fr;
+}
+
+}
