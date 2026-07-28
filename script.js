@@ -19,3 +19,21 @@ aboutBtn.addEventListener("click", function () {
         <p>Everyone is welcome, from beginners to masters.</p>
     `;
 });
+const pageContent = document.getElementById("page-content");
+
+const aboutBtn = document.querySelector(".about-btn");
+
+aboutBtn.addEventListener("click", function () {
+
+pageContent.innerHTML = `
+<h3>📘 About Bullet Viet Nam</h3>
+
+<p>Welcome to Bullet Viet Nam.</p>
+
+<p>We organize Bullet tournaments every Tuesday, Thursday, Saturday and Sunday.</p>
+
+<p>Everyone is welcome to join and improve together!</p>
+
+`;
+
+});
