@@ -172,7 +172,9 @@ Learn • Play • Compete
 
 <div class="buttons">
 
-<div class="btn">📘 About</div>
+<div class="btn about-btn">
+    📘 About
+</div>
 
 <div class="btn">🏆 Tournaments</div>
 
